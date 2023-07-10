@@ -8,7 +8,9 @@ const app = express();
 
 // 1) MIDDLEWARES
 
-app.use(morgan('dev'));
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
 
 //Use of Middleware
 app.use(express.json());
